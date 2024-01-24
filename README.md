@@ -7,13 +7,13 @@ The knobs used here were constructed using the **Sequential Forward Selector** d
 In short I do the following:
 
 - On top of the model prediction missmatch I regularize the elements' offsets with 2 regularizations.
-- I penalyze the small offsets, with **L2-like** regularization around 0.0. The offsets larger than 1 $$\mu$$m m are not prenalyzed. The penalty applied is:
+- I penalyze the small offsets, with **L2-like** regularization around 0.0. The offsets larger than 1 $\mu$ m m are not prenalyzed. The penalty applied is:
 ```Python
 filtered_weights = tf.where(tf.abs(weights) < BOTTOM_LIMIT, tf.abs(weights) - BOTTOM_LIMIT, tf.zeros_like(weights))
 
 zero_penalty = tf.abs(tf.reduce_mean(filtered_weights))
 ```
-here, `BOTTOM_LIMIT` (in my context it is equal to 1 $$\mu$$m) is the bottom limit for the offsets after which they are penalyzed.
+here, `BOTTOM_LIMIT` (in my context it is equal to 1 $\mu$ m) is the bottom limit for the offsets after which they are penalyzed.
 - I also penalyze the offsets in a way to minimize the beam orbit along the Main Linac. Assuming the response is linear, I predict the beam orbit through the response matrix `R_orbit_tensor`. The beam orbit that exceeds the limit is penalyzed. The penalty is evaluated like this:
 ```Python
 orbit_vector = tf.linalg.matvec(R_orbit_tensor, tf.squeeze(weights, axis=-1))
@@ -22,9 +22,9 @@ filtered_vector = tf.where(abs(orbit_vector) > ORBIT_LIMIT, abs(orbit_vector) - 
 
 orbit_penalty = tf.reduce_mean(filtered_vector)
 ```
-here `ORBIT_LIMIT` is the beam orbit above which the beam orbit start to be penalyzed. In my case it is 20 $$\mu$$ m.
+here `ORBIT_LIMIT` is the beam orbit above which the beam orbit start to be penalyzed. In my case it is 20 $\mu$ m.
 
-In the study above, I set the maximum number of quadrupoles for the **SFS** to 20. For most of the knobs it is more than enough to have a decent solution. But in the case of the knobs **Y7**, **Y8**, and **Y10** there are still some spikes (around 60-100 $$\mu$$ m), usually in just one place.
+In the study above, I set the maximum number of quadrupoles for the **SFS** to 20. For most of the knobs it is more than enough to have a decent solution. But in the case of the knobs **Y7**, **Y8**, and **Y10** there are still some spikes (around 60-100 $\mu$ m), usually in just one place.
 
 ## Based on the results of the SFS, I picked the solutions for the knobs. 
 
