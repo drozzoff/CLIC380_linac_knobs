@@ -22,9 +22,9 @@ filtered_vector = tf.where(abs(orbit_vector) > ORBIT_LIMIT, abs(orbit_vector) - 
 
 orbit_penalty = tf.reduce_mean(filtered_vector)
 ```
-here `ORBIT_LIMIT` is the beam orbit above which the beam orbit start to be penalyzed. In my case it is 20 $$\mu$m$.
+here `ORBIT_LIMIT` is the beam orbit above which the beam orbit start to be penalyzed. In my case it is 20 $$\mu$$ m.
 
-In the study above, I set the maximum number of quadrupoles for the **SFS** to 20. For most of the knobs it is more than enough to have a decent solution. But in the case of the knobs **Y7**, **Y8**, and **Y10** there are still some spikes (around 60-100 $$\mu$$m), usually in just one place.
+In the study above, I set the maximum number of quadrupoles for the **SFS** to 20. For most of the knobs it is more than enough to have a decent solution. But in the case of the knobs **Y7**, **Y8**, and **Y10** there are still some spikes (around 60-100 $$\mu$$ m), usually in just one place.
 
 ## Based on the results of the SFS, I picked the solutions for the knobs. 
 
@@ -70,4 +70,4 @@ def construct_knobs(beamline: pl.Beamline) -> List[pl.Knob]:
     return knobs
 ```
 
-**Note:** the beamline that is used to create the knobs should be the same as the one that was used to construct the knobs on. Otherwise it does not make any sense.
+**Note:** the beamline that is used to create the knobs should be the same as the one that was used to construct the knobs on. **Otherwise it does not make any sense.**
