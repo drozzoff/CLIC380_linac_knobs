@@ -55,7 +55,7 @@ To build this set of knobs, I do the following:
 
 ```Python
 import placetmachine as pl
-import typing
+from typing import List
 
 def construct_knobs(beamline: pl.Beamline) -> List[pl.Knob]:
 
@@ -71,3 +71,5 @@ def construct_knobs(beamline: pl.Beamline) -> List[pl.Knob]:
 ```
 
 **Note:** the beamline that is used to create the knobs should be the same as the one that was used to construct the knobs on. **Otherwise it does not make any sense.**
+
+### [Here](SFS3_knobs_test.ipynb) is the Jupytet notebook where I construct, rendered the orthogonality and perform the tuning with this particular set of knobs.
