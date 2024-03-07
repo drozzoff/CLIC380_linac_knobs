@@ -18,7 +18,7 @@ The summary table with the optimum setup for the knobs is:
 |  Y1  |     12     | 0.962125 |
 |  Y2  |     15     | 0.964892 |
 |  Y3  |     10     | 0.970607 |
-|  Y4  |     ..     | ........ |
+|  Y4  |      9     | 0.954275 |
 |  Y5  |     ..     | ........ |
 |  Y6  |     ..     | ........ |
 |  Y7  |     ..     | ........ |
@@ -50,6 +50,13 @@ offsets = [-1.84305, -8.012489, 3.6600113, 1.0008427, 27.782095, 26.244236, 7.57
 [Here](Y3_convergence_study.ipynb) is the jupyter notebook with more details of the scan.
 
 ### Knob  **Y4**
+```
+features = [2061, 2062, 1493, 1515, 2060, 1526, 1504, 1489, 2059]
+offsets = [-20.725388, -5.951438, 1.0033137, -6.2002664, -6.281371, 1.0087113, 1.2091062, -1.00304, -1.0033016]
+```
+[Here](Y4_convergence_study.ipynb) is the jupyter notebook with more details of the scan.
+
+### Knob  **Y5**
 
 *to be updated*
 
