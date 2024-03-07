@@ -54,5 +54,3 @@ offsets = [-1.84305, -8.012489, 3.6600113, 1.0008427, 27.782095, 26.244236, 7.57
 *to be updated*
 
 **Note:** the beamline that is used to create the knobs should be the same as the one that was used to construct the knobs on. **Otherwise it does not make any sense.**
-
-### [Here](SFS3_knobs_test.ipynb) is the Jupytet notebook where I construct, rendered the orthogonality and perform the tuning with this particular set of knobs.
