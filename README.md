@@ -20,7 +20,7 @@ The summary table with the optimum setup for the knobs is:
 |  Y3  |     10     | 0.970607 |
 |  Y4  |      9     | 0.954275 |
 |  Y5  |     13     | 0.972522 |
-|  Y6  |     ..     | ........ |
+|  Y6  |     23     | 0.964387 |
 |  Y7  |     ..     | ........ |
 |  Y8  |     ..     | ........ |
 |  Y9  |     ..     | ........ |
@@ -64,7 +64,23 @@ offsets = [52.589233, 24.192154, -6.794914, -53.63966, 4.5129313, -3.119878, -1.
 [Here](Y5_convergence_study.ipynb) is the jupyter notebook with more details of the scan.
 
 ### Knob  **Y6**
+```
+features = [2061, 2062, 1689, 2059, 1693, 1705, 2044, 1748, 1623, 1569, 2029, 1595, 1539, 1606, 1666, 1907, 1535, 1895, 2058, 1669, 1732, 1517, 1509]
+offsets = [1.007775, -1.0060145, -23.89543, -11.346015, -24.16606, -4.691198, -10.451449, -1.0043415, -1.7761153, 22.075333, -16.784285, 29.727722, -18.901419, -7.284757, 1.8254659, 15.494361, -9.863385, 11.994422, -1.315509, -1.9800675, 1.9732033, 2.7335136, -0.9997426]
+```
+[Here](65_convergence_study.ipynb) is the jupyter notebook with more details of the scan.
 
+### Knob  **Y7**
 *to be updated*
+
+### Knob  **Y8**
+*to be updated*
+
+### Knob  **Y9**
+*to be updated*
+
+### Knob  **Y10**
+*to be updated*
+
 
 **Note:** the beamline that is used to create the knobs should be the same as the one that was used to construct the knobs on. **Otherwise it does not make any sense.**
