@@ -24,7 +24,7 @@ The summary table with the optimum setup for the knobs is:
 |  Y7  |     ..     | ........ |
 |  Y8  |     ..     | ........ |
 |  Y9  |     19     | 0.962303 |
-|  Y10 |     ..     | ........ |
+|  Y10 |     25     | 0.956407 |
 
 More detailed info on how the knobs are constructed is here:
 
