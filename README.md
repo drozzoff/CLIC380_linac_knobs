@@ -84,7 +84,10 @@ offsets = [-52.929802, -16.318533, 14.455154, -1.0021956, -20.712362, 3.9437888,
 [Here](Y9_convergence_study.ipynb) is the jupyter notebook with more details of the scan.
 
 ### Knob  **Y10**
-*to be updated*
-
+```
+feature = [2061, 2062, 1589, 1713, 1559, 2059, 1755, 1490, 1501, 2060, 2035, 1523, 1767, 1512, 1541, 1625, 1686, 1489, 1997, 1644, 1721, 1605, 1745, 1630, 1680]
+offsets = [-32.787884, -9.262848, 15.856654, -3.5411239, -19.070496, 3.2364144, -12.878025, -3.281437, 19.582462, -8.2011595, -8.383424, -29.706821, -20.148241, 1.0778022, -26.771458, 14.183673, 4.3581166, 2.77738, 5.216679, 3.7812219, 6.17213, 3.0716708, -2.305692, 2.2195277, 1.0227758]
+```
+[Here](Y10_convergence_study.ipynb) is the jupyter notebook with more details of the scan.
 
 **Note:** the beamline that is used to create the knobs should be the same as the one that was used to construct the knobs on. **Otherwise it does not make any sense.**
