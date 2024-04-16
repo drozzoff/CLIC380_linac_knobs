@@ -71,10 +71,10 @@ offsets = [1.007775, -1.0060145, -23.89543, -11.346015, -24.16606, -4.691198, -1
 [Here](Y6_convergence_study.ipynb) is the jupyter notebook with more details of the scan.
 
 ### Knob  **Y7**
-*to be updated*
+This knob cannot be matched with the conditions used in this study. Multiple hyperparameters were used with little success. The optimization always fails to reduce the exit orbit to the acceptable level.
 
 ### Knob  **Y8**
-*to be updated*
+This knob cannot be matched with the conditions used in this study. Multiple hyperparameters were used with little success. The optimization always fails to reduce the exit orbit to the acceptable level.
 
 ### Knob  **Y9**
 ```
