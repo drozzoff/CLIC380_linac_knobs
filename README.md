@@ -7,6 +7,31 @@ The knobs uploaded here is the further development from the knobs given in [2024
 - The beam orbit that is not penalyzed is increased from **20 micron** to **40 micron**. But the hyperparameter for the *orbit_loss* is increased.
 - Additional regularization called *exit_orbit_loss* is introduced. It penalyzes the beam orbit at the ML exit. Doing so, we make sure the knobs do not introduce any significant beam orbit at the ML exit. Making sure it is so is very important. Unlike the BBA, the knobs are to be used with the luminosity as a figure of merit. BBA on the other hand is to be performed from ML and then on BDS, thus any beam orbit at the ML exit can be corrected afterwards. With the knobs, we do not have such option. So, if the knob introduces significant beam orbit it is going to lead to the luminosity drop. From the estimation, **50 nm** exit orbit leads to **0.02 nm** offset at the IP. That means with the exit orbit of ~ **0.5 micron** (~ 0.2 mn), we could start seeing lumi drop (the simulations will follow). So, we want to keep these values as small as possible. In [2024_01_24](https://github.com/drozzoff/CLIC380_linac_knobs/tree/2024_01_24), the exit orbit is somewhat random as it is not controlled and varies in the range **1-10 micron** for majority of the knobs and couple tens for the problematic knobs such as **Y7**, **Y8**, and **Y10**.
 
+Simulations utilize several parameters and hyperparameters that can be adjusted. In particular:
+
+**Hyperparameters:**
+- `error_scale` - hyperparameter for the elements offset loss.
+- `orbit_error_scale` - hyperparameter for the orbit loss
+- `exit_orbit_error_scale` - hyperparameter for the exit orbit loss
+
+**Parameters:**
+- `BOTTOM_LIMIT` - the bottom level for the acceptable elements' offsets
+- `UPPER_LIMIT` - the upper level for the acceptable elements' offsets
+- `ORBIT_LIMIT` - the orbit limit, below which the orbit is not penalyzed
+- `N_LAST_BPMS_TO_FLATTEN` - number of the BPMs at the beamline end to flatten the beam orbit
+
+In this study their values are the following:
+
+|       **Parameter**      | **Value** | **Meaning** |
+|:------------------------:|:---------:|:-----------:|
+|       `error_scale`      |    5e-7   |             |
+|    `orbit_error_scale`   |    1e-6   |             |
+| `exit_orbit_error_scale` |    1e-8   |             |
+|      `BOTTOM_LIMIT`      |     1     |    $\mu$m   |
+|       `UPPER_LIMIT`      |    100    |    $\mu$m   |
+|       `ORBIT_LIMIT`      |     40    |    $\mu$m   |
+| `N_LAST_BPMS_TO_FLATTEN` |     2     |             |
+
 ***Also, another difference is that, I introduce the last quads to every calcualtion by default***. These quads are important for the exit orbit correction are would be added in the calculation anyway.
 
 To constract the knobs, I follow the same procedure described in [2024_01_24](https://github.com/drozzoff/CLIC380_linac_knobs/tree/2024_01_24), the script used for the calculations is [here](learning_model_february_parallel.py).
