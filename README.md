@@ -1,7 +1,21 @@
-# CLIC380_linac_knobs
+# Knobs constructed using the features selected with LASSO
 
-In this repository I store the emittance tuning knobs I constructed for the Main Linac of CLIC 380 GeV. Each branch hosts some version of the knobs. The name of branch indicates when this particular set was constructed. The full details on each knob set is given in the dedicated README. I try to accompany the knobs creation functions with some Notebooks, displaying the knobs' tests and their usage in the tuning.
+The knobs here were constructed using the features that were selected with **LASSO** algorithm. The hyperparameters in the **LASSO** were chosen to have the number of features in the range from 1 to at least 60.
 
-### So far there are the following Knobs sets here:
-- [2024_01_24](https://github.com/drozzoff/CLIC380_linac_knobs/tree/2024_01_24) - A set constructed with Sequential Forward Selection (SFS) with a custom regularization. Regularization consists of penalty on the elements' offsets and the beam orbit in the ML.
-- [2024_03_07](https://github.com/drozzoff/CLIC380_linac_knobs/tree/2024_03_07) - A set constructed with Sequential Forward Selection (SFS) with a custom regularization. Regularization consists of penalty on the elements' offsets, beam orbit in the ML, and the beam orbit at the ML exit.
+The model fitting is done in `Tensorflow` with the following hyperparameters:
+
+|       **Parameter**      | **Value** | **Meaning** |
+|:------------------------:|:---------:|:-----------:|
+|       `error_scale`      |    5e-7   |             |
+|    `orbit_error_scale`   |    1e-6   |             |
+| `exit_orbit_error_scale` |    1e-8   |             |
+|      `BOTTOM_LIMIT`      |     1     |    $\mu$m   |
+|       `UPPER_LIMIT`      |    100    |    $\mu$m   |
+|       `ORBIT_LIMIT`      |     60    |    $\mu$m   |
+| `N_LAST_BPMS_TO_FLATTEN` |     2     |             |
+
+Since **LASSO** is a regression model with $l_1$ regularization, it provides the elements' offsets in the solution. So, 2 options were investigated:
+- Where the offsets evaluated with **LASSO** are transfered to `Tensorflow` model as initial guess. This is reffered to as *lasso*.
+- Where the offsets evaluated with **LASSO** are ignored and are initiated by default with `0.0`. This is reffered to as *lasso_zero*.
+
+[Notebook](Knobs_lasso_construction.ipynb) features the study summary (*to be updated*).
