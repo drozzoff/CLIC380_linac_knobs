@@ -1,7 +1,20 @@
 # CLIC380_linac_knobs
 
-In this repository I store the emittance tuning knobs I constructed for the Main Linac of CLIC 380 GeV. Each branch hosts some version of the knobs. The name of branch indicates when this particular set was constructed. The full details on each knob set is given in the dedicated README. I try to accompany the knobs creation functions with some Notebooks, displaying the knobs' tests and their usage in the tuning.
+This a version from **2024/10/09**.
 
-### So far there are the following Knobs sets here:
-- [2024_01_24](https://github.com/drozzoff/CLIC380_linac_knobs/tree/2024_01_24) - A set constructed with Sequential Forward Selection (SFS) with a custom regularization. Regularization consists of penalty on the elements' offsets and the beam orbit in the ML.
-- [2024_03_07](https://github.com/drozzoff/CLIC380_linac_knobs/tree/2024_03_07) - A set constructed with Sequential Forward Selection (SFS) with a custom regularization. Regularization consists of penalty on the elements' offsets, beam orbit in the ML, and the beam orbit at the ML exit.
+This branch features the knobs construction summary using the ***Variance Threshold Filter**. Since this method of the feature selection only relies on the data it fails to predict all relations for the proper reduction of the regularization loss. And consequently the model fitting fails for the features selected with **Threshold Variance Filter**. 
+
+The model fitting is done in Tensorflow with the following hyperparameters:
+
+|       **Parameter**      | **Value** | **Meaning** |
+|:------------------------:|:---------:|:-----------:|
+|       `error_scale`      |    5e-7   |             |
+|    `orbit_error_scale`   |    1e-6   |             |
+| `exit_orbit_error_scale` |    1e-8   |             |
+|      `BOTTOM_LIMIT`      |     1     |    $\mu$m   |
+|       `UPPER_LIMIT`      |    100    |    $\mu$m   |
+|       `ORBIT_LIMIT`      |     60    |    $\mu$m   |
+| `N_LAST_BPMS_TO_FLATTEN` |     2     |             |
+
+The threshold for the ***Variance Threshold Filter** was iterated in the certain range to get the good number of features.
+[Notebook](Knobs_variance_threshold_construction.ipynb) features the scan summaries using the data generated from the fits. The data itself is stored in the corresponding folders.
